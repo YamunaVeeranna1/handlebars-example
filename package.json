@@ -1,0 +1,14 @@
+{
+  "name": "reqparam1",
+  "version": "1.0.0",
+  "description": "request param",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}

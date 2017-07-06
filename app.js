@@ -2,15 +2,32 @@ var exp = require("express");
 
 var app = exp();
 
-app.get("/players", function(req, res){
-	console.log("query is here" +JSON.stringify(query));
-	var query = req.query;
-	res.write("name=" + query.name);
-	res.write("  lang=" + query.lang);
-	res.end(JSON.stringify(query));
-});
+var bodyParser = require("body-parser");
+var session = require("express-session");
+var routes = require("./routes/routes.js");
+var hbars = require('express-handlebars');
+
+app.use(exp.static(__dirname + "/public"));
+
+//body parser
+app.use(bodyParser());
+app.use(bodyParser.urlencoded({extended: false}));
+
+//session handling
+app.use(session({secret:"secret", resave: true, saveUninitialized: true}));
+
+//handlebars
+app.set('view engine', 'handlebars');
+app.engine('handlebars', hbars({}));
+
+
+app.get('/', routes.loginPageHandler);
+app.get('/toLanding', routes.landingPageHandler);
+app.post('/toCity', routes.cityPageHandler);
+
+
 var port = process.env.PORT || 4000;
 
 app.listen(port, function(){
-	console.log("port is running on 4000");
+	console.log("port is running on port" + port);
 });

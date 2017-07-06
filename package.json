@@ -1,14 +1,25 @@
 {
   "name": "reqparam1",
   "version": "1.0.0",
-  "description": "request param",
+  "description": "Demo of express handlebars bootstrap seeeion handling body-parser",
   "main": "app.js",
   "scripts": {
     "test": "nodemon app.js"
   },
-  "author": "",
+  "keywords": [
+    "req",
+    "express",
+    "handlebars",
+    "bootstrap",
+    "session",
+    "body-parser"
+  ],
+  "author": "Yamuna",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.2"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.3"
   }
 }
